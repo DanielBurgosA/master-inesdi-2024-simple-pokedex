@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 
 let timeout: number = 0;
 
-export function useTextTransition(duration = 1000) {
+export function useTextTransition(duration = 50) {
   const [ready, setReady] = useState(false);
 
   const resetTransition = useCallback(() => {

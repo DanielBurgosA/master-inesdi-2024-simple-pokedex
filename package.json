@@ -26,7 +26,8 @@
   "dependencies": {
     "classnames": "2.5.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "6.2.0",

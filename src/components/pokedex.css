@@ -1,24 +1,31 @@
-.pokedex {
+.pokedex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-pokedex {
   width: 700px;
   height: 360px;
 
   border-radius: 30px 8px 8px 30px;
-
   display: flex;
   flex-direction: row;
+  z-index: 2;
 }
 
-.pokedex-red {
+.main-pokedex-red {
   background-color: var(--base-red);
   border: 6px solid var(--darker-red);
 }
 
-.pokedex-yellow {
+.main-pokedex-yellow {
   background-color: var(--base-yellow);
   border: 6px solid var(--darker-yellow);
 }
 
-.pokedex-blue {
+.main-pokedex-blue {
   background-color: var(--base-blue);
   border: 6px solid var(--darker-blue);
 }
@@ -43,18 +50,21 @@
   border-radius: 8%;
 }
 
-.pokedex-red .screen,
-.pokedex-red .button {
+.main-pokedex-red .screen,
+.main-pokedex-red #back,
+.main-pokedex-red .button {
   border: 4px solid var(--dark-red);
 }
 
-.pokedex-yellow .screen,
-.pokedex-yellow .button {
+.main-pokedex-yellow .screen,
+.main-pokedex-yellow #back,
+.main-pokedex-yellow .button {
   border: 4px solid var(--dark-yellow);
 }
 
-.pokedex-blue .screen,
-.pokedex-blue .button {
+.main-pokedex-blue .screen,
+.main-pokedex-blue #back,
+.main-pokedex-blue .button {
   border: 4px solid var(--dark-blue);
 }
 
@@ -62,12 +72,37 @@
   width: 80%;
   height: 36px;
   display: flex;
-  align-items: center; /* Y */
-  justify-content: center; /* X */
+  align-items: center; 
+  justify-content: center; 
 
   text-transform: uppercase;
   font-size: larger;
   font-weight: 800;
+}
+
+.left-panel .types-display {
+  width: 50%;
+  height: 20px;
+  display: flex;
+  align-items: center; 
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -10px;
+  border: 0px;
+
+  text-transform: lowercase;
+  font-size: medium;
+  font-weight: 800;
+}
+
+.type {
+  display: flex;
+  margin: 10px;
+  color: white;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 10px;
+  width: fit-content;
 }
 
 .right-panel {
@@ -90,9 +125,85 @@
   justify-content: center;
 }
 
+.main-screen{
+  position: relative;
+}
+
 .main-screen img {
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  cursor: pointer;
+}
+
+#front {
+  z-index: 2;
+  width: 180px;
+  height: 180px;
+  filter: drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.904));
+  bottom: 10px;
+}
+
+#back {
+  z-index: 1;
+  width: 250px;
+  height: 190px;
+  border-radius: 15px;
+}
+
+.detail-screen{
+  margin: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  padding: 0px;
+}
+
+.weak-detail{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  margin: 5px;
+}
+
+.weak-title{
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  height: 15px;
+  margin: 5px;
+}
+
+.weak-title p{
+  width: 100%;
+  height: 10px;
+  display: contents;
+  font-weight: bold;
+}
+
+.weaknesses {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 75%;
+  width: 50%;
+}
+
+.weaknesses p {
+  flex-grow: 0; 
+  margin-bottom: 5px;
+  height: 100%;
+}
+
+.weak{
+  display: flex;
+  margin: 5px;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 10px;
+  width: fit-content;
 }
 
 .sprite {
@@ -130,6 +241,10 @@
   filter: blur(0);
 }
 
+.controls-main{
+  display: flex;
+}
+
 .ready--quick {
   transition: filter 200ms linear 200ms;
 }
@@ -140,4 +255,40 @@
 
 .ready--slow {
   transition: filter 500ms linear 800ms;
+}
+
+.details {
+  width: 650px;
+  height: 150px;
+  margin-top: -10px;
+}
+
+.team {
+  width: 442px;
+  height: 100px;
+  margin-bottom: -10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.team-screen {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+}
+
+.team-screen > img:only-of-type{
+  width: 60px;
+  height: 60px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.team-screen > img:only-of-type:hover {
+  border-color: red; /* Cambiar el color del borde a rojo al pasar el ratón por encima */
 }
